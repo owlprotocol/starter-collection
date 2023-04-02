@@ -1,0 +1,14 @@
+{
+    "name": "omo",
+    "description": "omo collection description",
+    "external_url": "example.com",
+    "seller_fee_basis_points": 0,
+    "fee_recipient": "0x0000000000000000000000000000000000000001",
+    "traits": [
+        "background",
+        "body"
+    ],
+    "children": [
+        "hats"
+    ]
+}

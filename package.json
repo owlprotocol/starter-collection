@@ -1,0 +1,76 @@
+{
+  "name": "@owlprotocol/collection-template",
+  "version": "1.2.0",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/owlprotocol/collection-template.git"
+  },
+  "homepage": "https://github.com/owlprotocol/collection-template/blob/main/README.md",
+  "copyright": "Copyright 2022 Owl Protocol",
+  "license": "MIT",
+  "type": "module",
+  "main": "./lib/cjs/index.cjs",
+  "module": "./lib/esm/index.mjs",
+  "types": "./lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "require": "./lib/cjs/index.js",
+      "import": "./lib/esm/index.js"
+    }
+  },
+  "files": [
+    "dist/*",
+    "lib/*",
+    "src/*",
+    "LICENSE",
+    "README.md",
+    "contracts/*"
+  ],
+  "scripts": {
+    "build": "npm-run-all build:esm",
+    "build:esm": "npm-run-all build:esbuild build:tsc ",
+    "build:watch": "npm-run-all -p build:tsc:watch build:esbuild:watch",
+    "build:esbuild": "node esbuild.config.mjs",
+    "build:esbuild:watch": "ESBUILD_WATCH=true node esbuild.config.mjs",
+    "build:tsc": "tsc",
+    "build:tsc:watch": "tsc -w",
+    "clean": "rimraf lib cache src/artifacts src/typechain",
+    "node": "npm run node:anvil",
+    "node:anvil": "anvil",
+    "lint": "eslint 'src/**/*.ts'",
+    "lint:fix": "eslint --fix 'src/**/*.ts'"
+  },
+  "dependencies": {
+    "@owlprotocol/contracts": "^2.0.0",
+    "@pinata/sdk": "^2.1.0",
+    "axios": "^1.3.4",
+    "ethers": "5.7.2",
+    "@ethersproject/providers": "^5.4.3",
+    "lodash-es": "^4.17.21"
+  },
+  "devDependencies": {
+    "@owlprotocol/contracts": "^2.0.0",
+    "@owlprotocol/esbuild-config": "^2.0.0",
+    "@owlprotocol/eslint-config": "^2.0.0",
+    "@owlprotocol/nft-sdk": "^1.2.4",
+    "@owlprotocol/prettier-config": "^2.0.0",
+    "@owlprotocol/utils": "^2.0.0",
+    "@types/lodash-es": "^4.17.7",
+    "@types/node": "^16.11.38",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.1",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^3.4.1",
+    "ethers": "5.7.2",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.5.1",
+    "rimraf": "^3.0.2",
+    "typescript": "4.9.5"
+  }
+}
